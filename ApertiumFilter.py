@@ -32,7 +32,7 @@ def filt(mode):
     line = sys.stdin.readline()
     while line != '':
         # respecting superblanks [.*], skip them
-        line = re.sub("\[.*\]", "", line)
+        line = re.sub("\[.*?\]", "", line)
         # e.g. word_info = ^I/I<num><mf><sg>/I<prn><subj><p1><mf><sg>$
         for word_info in word_info_re.findall(line):
             # e.g. attr_info_list = ['I<num><mf><sg>', 'I<prn><subj><p1><mf><sg>']
