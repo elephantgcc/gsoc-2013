@@ -8,11 +8,12 @@
  * each surface form in a new format, respecting superblanks.
  * http://wiki.apertium.org/wiki/Ideas_for_Google_Summer_of_Code/Sliding-window_part-of-speech_tagger
  *
+ * ======================================================================================================
  * Example input line:
  * [<em>]^I/I<num><mf><sg>/I<prn><subj><p1><mf><sg>$ ^have/have<vbhaver><inf>/have<vbhaver><pres>$[</em>]
  * output:
  * I.prn.subj.p1.mf.sg have.vbhaver.inf 
- *
+ * ======================================================================================================
  * 2013-04-21 by Gang Chen
  */
 
