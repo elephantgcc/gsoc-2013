@@ -29,19 +29,26 @@ void filt(bool mode) {
     srand((unsigned)time(NULL));
     string line;
     size_t begin = 0, end = 0; // index for paired '^' and '$'
+    string attr_info;          // e.g. I.num.mf.sg
+    vector<string> attr_info_list; // e.g. I.num.mf.sg I.prn.subj.p1.mf.sg
     while (getline(cin, line)) {
-        begin = 0;
-        end = 0;
+        begin = 0, end = 0;
         while (true) {
+        
+            // locate begin('^') and end('$')
             begin = line.find('^', end); // skiped superblanks
-            if ( begin == string::npos) {
+            if (begin == string::npos) {
                 break; // break when no further '^' is found
             }
             end = line.find('$', begin); // skiped superblanks
+            if (end == string::npos) {
+                cerr << "error: input format error!\n";
+                exit(1);
+            }
             
-            // collecting attr_info-s like: I.num.mf.sg I.prn.subj.p1.mf.sg
-            vector<string> attr_info_list;
-            string attr_info;
+            //collecting attr_info(s) into list
+            attr_info.clear();
+            attr_info_list.clear();
             for ( size_t i = line.find('/', begin) + 1; i <= end; ++i) {
                 if (line[i] == '/' || line[i] == '$') {
                     attr_info_list.push_back(attr_info);
@@ -50,10 +57,12 @@ void filt(bool mode) {
                     attr_info.push_back('.');
                 } else if (line[i] == '>') {
                     continue;
-                } else {// normal content
+                } else {// normal morph content
                     attr_info.push_back(line[i]);
                 }
             }
+            
+            //output, true for first, false for random
             if (mode == true) {
                 cout << attr_info_list[0] << " ";
             } else {
@@ -69,9 +78,12 @@ int main(int argc, char * argv[]) {
         filt(true);
     } else if (argc == 2 && strcmp(argv[1], "-r") == 0) {
         filt(false);
-    } else {
+    } else if (argc == 2 && (strcmp(argv[1], "-h") == 0 || strcmp(argv[1], "--help") == 0)) {
         cout << "usage: exe -f, output the first morphological analysis for each word.\n"
              << "       exe -r, output a random morphological analysis for each word.\n";
+    } else {
+        cerr << "error: invalid cmd/option!\n"
+             << "try `exe -h or --help' for more information.\n";
         exit(1);
     }
 }
