@@ -1,0 +1,124 @@
+Name: Gang Chen
+Email: pkuchengang@gmail.com
+IRC: Gang Chen
+GitHub Repo: https://github.com/elephantgcc
+
+
+====================================================
+Why is it you are interested in machine translation?
+====================================================
+I am majored in Natural Language Processing, and after taking a course on Machine Translation, I became intrested in it. It sits in the center of many NLP techniques, and has a very promising application in real life. 
+
+2 years ago, I started to intern in a statistical machine translation team of an Internet company. Since then, I began to be in deeper touch with the classic IBM models, the n-gram language models, various decoding algorithms, and many excellent open source toolkits. I was greatly attracted by the ideas and applications of machine translation. Reading the papers and making the toolkits to work properly brought me so much fun, that I still remember the sleepless night thinking about the nerual network language model. 
+
+A language is such a complicated system, that translating a sentence from one language to another has always been a challenging task. On the other hand, with the translation need drastically growing, developing better machine translation systems can also benifit the society.
+
+
+==========================================================
+Why is it that you are interested in the Apertium project? 
+==========================================================
+I came across the Apertium project a year ago, when I knew about last year's GSoC. The rule-based methodology of it attracted me most. The language system is a structural organization in its nature, so studying the underlying rules of it should be the most direct effort to unveil the mysteries of the system. Linguistic knoledge plays a central role in language processing problems, whether it's by emprical statistics or rational analysis. So I think it is important to play with the "colorless green ideas" within a language.
+
+Besides that, Apertium is an open source project, so ordinary people can join in and try ideas to improve it for more and better machine translation services. And what's also important is that they can be used by people all around the world.
+
+
+===========================================================================
+Which of the published tasks are you interested in? What do you plan to do? 
+===========================================================================
+I am have a great interest in the project "Sliding-window part-of-speech tagger".
+Currently the PoS tagger for Apertium is a HMM tagger, while the project aims to the implementation of a sliding-window PoS tagger, for better quality and efficiency. 
+
+My plans are basiclly as follows: 
+1) read the paper and get a full understanding to the algorithm, and familiarize myself with the Apertium pipeline.
+2) implement a supervised training version of the algorithm. Implement a FST without a minimization.
+3) implenent an unsupervised training version of the algorithm. Implement a FST with a minimization.
+4) integrate FORBID rules into the implementation.
+5) optionally, re-study the algorithm to explore further possible improvements mentioned in the paper.
+
+
+==============
+Proposal Title
+==============
+Application for the Apertium Project "Sliding-window part-of-speech tagger" for GSoC 2013.
+
+
+
+==================================================================================
+Why Google and Apertium should sponsor it? How and who it will benefit in society?
+==================================================================================
+The PoS tagger plays an important role in the Apertium translation pipeline. A sliding-window PoS tagger can improve the quality and efficiency of tagging, than the current HMM tagger. So its implementation will benifit both the Apertium developers and users. 
+
+I would be really thankful if Google and Apertium would sponsor this project. I think I have the knowledge and skills to accomplish the task, plus the enthusiasm for machine translation. And Apertium is a very nice community that I would like to stay with for long time.
+
+
+=========
+Work plan
+=========
+The task of this project is to implement a new PoS tagger. The outline of the developing procedure are mentioned above as basic plans.
+The detailed work plan is as follows:
+
+Community bonding period: Get further contact with the community, and familiarize with myself with Apertium platform and the project.
+
+Week 01:                  Learn about code and file formats for the tagger. Learn from and run the current HMM tagger to get a baseline.
+Week 02:                  Implement the supervised training algorithm. Get training corpus ready for experiments.
+Week 03:                  Learn about finite-state transducers. Implement a FST to use the new tagger.
+Week 04:                  Continue implementation. Make tests, check for bugs, and documentation.
+
+Deliverable #1:           Finish a supervised training algorithm, with FST usable. The tagger has good a quality and efficiency.
+
+Week 05:                  Re-read the paper and documentation. Write a first version of the unsupervised algorithm.
+Week 06:                  Continue with the unsupervised algorithm. Survey FST minimization techniques.
+Week 07:                  Implement the FST minimization.
+Week 08:                  Continue implementation. Make tests, check for bugs, and documentation.
+
+Deliverable #2:           Finish a unsupervised training algorithm, with FST minimization. The tagger has a good quality and efficiency.
+
+Week 09:                  Study different ways to incorperate FORBID rules. Implement the FORBID restrictions.
+Week 10:                  Continue implementation. Make tests, check for bugs, and documentation.
+
+Deliverable #3:           Finish an XML-based format for writing FORBID rules.
+
+Week 11:                  Study further possible improvements.
+Week 12:                  Check the code and documentation.
+
+Deliverable #Final:       A full implementation of the Sliding-window PoS tagger in Apertium.
+
+
+=========================================================================
+Include time needed to think, to program, to document and to disseminate.
+=========================================================================
+Generally and totally:
+Programming and thinking will mainly take 8 weeks.
+Documentation, surveying, and disseminatation will share the rest 4 weeks.
+
+
+=======================================================================================================
+List your skills and give evidence of your qualifications. Tell us what is your current field of study, 
+major, etc. Convince us that you can do the work. In particular we would like to know whether you 
+have programmed before in open-source projects. 
+=======================================================================================================
+I am currently a 2-nd year postgraduate majoring in Natural Language Processing.
+
+During the recent 2 years, I have been interning in a statistical machine translation team of an Internet company. 
+
+There, I brought up 2 language pairs (Spanish-Chinese and Russian Chinese) into online services (http://fanyi.youdao.com) independently. With that chance, I explored the whole pipeline of a statistical machine translation system, including bilingual data crawling and filtering , word alignment, model extraction, and parameter tunning, etc.
+
+I also used Map-Reduce framework to processe large amounts of text, to improve the Ngram language models, which a significant +0.5 BLEU quality improvement for Chinese-English translation. During that, I watched and analysed a lot of raw text and ngram data, read many papers on data selection and domain adaptation, and conducted various kinds of experiments on text filtering and cleaning. Thanks to that project, it made me form a habit of analysing bad cases and data, instead of blindly doing the black-box parameter tuning without thinking.
+
+Besides, I also took part in a project for speeding up the translation decoder, and gained a significant 2x efficiency improvement at very little quality cost. We watched a lot of bad cases, analyse them linguistically, and finally we made a good balance between translation qualitiy and speed.
+
+During my undergraduate period, I took courses on linguistics, mathematics and computer science, where I got the basic knowledge about languistic analyses and programming. I also took part in the development of some NLP systems, such as the construction of Chinese Concept Dictionary, which is a a WordNet-like Chinese ontology, a lexical similarity computation software written in Java, and especially, an supervised HMM PoS tagger written in C++, which I think may help to the implementation of the Sliding-window PoS tagger.
+
+As to the coding skills, I have 3 years' experience programming in Java and C++, and I am also familiar with basic Python and Shell for dealing with light-weight tasks.
+
+With the knowledge and experiences on natural language processing, I am confident in accomplishing the task well.
+
+This is the first time that I take part in an open source project, and I'm excited about it! I have been using open source toolkits for long, for example, the Moses machine translation toolkit, Srilm language model, OpenNLP toolkit, etc, and they all brought great help to me. I'd be happy to make some contributions to the open source community, and try best to adapt myself to the open source developing environment.
+
+
+=========================================================================================================
+List any non-Summer-of-Code plans you have for the Summer, especially employment, if you are applying for 
+internships, and class-taking. Be specific about schedules and time commitments. we would like to be sure 
+you have at least 30 free hours a week to develop for our project. 
+=========================================================================================================
+This summer is especially reserved for GSoC project, so 30 hours a week will be definitely OK.
